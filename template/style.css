@@ -115,3 +115,49 @@ a:hover{color:#ff8000;}
 .product-rating{
     margin-bottom: 1rem;
 }
+
+/* ASIDE BAR */
+.brand button{
+    font-size: 3rem;
+    padding:.5rem;
+    background:none;
+    border:none;
+    color:white;
+    cursor: pointer;
+}
+
+.sidebar{
+    position: fixed;
+    transform:translateX(-30rem);
+    width:30rem;
+    background-color: #f0f0f0;
+    height: 100%;
+}
+
+.sidebar.open{
+    transform: translateX(0);
+}
+
+.sidebar-close-button{
+    border-radius: 50%;
+    border: .1rem #000000 solid;
+    width:3rem;
+    height: 3rem;
+    padding:.5rem;
+    font-size: 2rem;
+    padding-top: 0;
+    cursor: pointer;
+    position: absolute;
+    right: .5rem;
+    top: 1.5rem;
+}
+
+.category-menu{
+    padding-top: 2rem;
+    padding-left: 1.5rem;
+}
+
+.product-category{
+    padding-left: 1.5rem;
+    padding-top: .5rem;
+}

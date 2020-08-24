@@ -13,6 +13,7 @@
         <header class="header">
 
             <div class="brand">
+                <button onclick="openMenu()">&#9776</button>
                 <a href="index.html">LOGO</a>
             </div>
 
@@ -22,6 +23,15 @@
             </div>
 
         </header>
+
+        <aside class="sidebar">
+            <h3 class="category-menu">Shopping Categories</h3>
+            <button class="sidebar-close-button" onclick="closeMenu()">x</button>
+            <ul>
+                <li class="product-category"><a href="index.html">Pants</a></li>
+                <li class="product-category"><a href="index.html">Shirts</a></li>
+            </ul>
+        </aside>
 
         <main class="main">
             <div class="content">
@@ -93,6 +103,9 @@
 
         <footer class="footer">All right reserved.</footer>
     </div><!--grid-container-->
+
+    <!-- SCRIPTS -->
+    <script src="./index.js"></script>
 
 </body>
 </html>
