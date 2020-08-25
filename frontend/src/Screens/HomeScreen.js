@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import data from '../data';
 import axios from 'axios';
+import { listProducts } from '../actions/productActions';
 
 function HomeScreen (props) {
 
     //proxy react hooks
-    const [products, setProduct] = useState([]);
+    // const [products, setProduct] = useState([]);
+    
+    const productList = useSelector(state => state.productList);
+    const { products, loading, error } = productList; 
+    const dispatch = useDispatch();
 
     useEffect(() => {
         
-        const fetchData = async() => {
-            const {data} = await axios.get("/api/products");
-            setProduct(data)
-        }
+        dispatch(listProducts());
 
-        fetchData();
+        // const fetchData = async() => {
+        //     const {data} = await axios.get("/api/products");
+        //     setProduct(data)
+        // }
+
+        // fetchData();
 
         return () => {
 
@@ -23,7 +31,8 @@ function HomeScreen (props) {
     }, [])
 
 
-    return <div>
+    return loading ? <div>Loading...</div> : error? <div>{error}</div> :
+    <div>
         <ul className="products">
             {
                 products.map(product => 
