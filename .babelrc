@@ -1,0 +1,8 @@
+//preset pr funcionar no es5
+{
+    "presets": [
+        [
+            "@babel/preset-env"
+        ]
+    ]
+}
