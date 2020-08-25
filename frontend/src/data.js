@@ -1,6 +1,7 @@
 const data = {
     products: [
         {
+            _id: '1',
             name: 'Slim Shirt',
             category: 'Shirts',
             image: '/images/d1.jpg',
@@ -10,6 +11,7 @@ const data = {
             reviews: '7'
         },
         {
+            _id: '2',
             name: 'Fit Shirt',
             category: 'Shirts',
             image: '/images/d1.jpg',
@@ -19,6 +21,7 @@ const data = {
             reviews: '8'
         },
         {
+            _id: '3',
             name: 'Best Pants',
             category: 'Pants',
             image: '/images/d1.jpg',

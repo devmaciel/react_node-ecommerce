@@ -1,3 +1,17 @@
+E-Commerce ReactJS
+
+Aqui é o projeto base do [curso](https://youtu.be/Fy9SdZLBTOo "curso").
+
+---
+Observações gerais:
+
+Iniciando o projeto com
+> npx create-react-app 'nome_da_pasta'
+
+precisamos também do react-router. na pasta de frontend
+> npm install react-router-dom
+
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
