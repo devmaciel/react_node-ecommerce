@@ -19,3 +19,22 @@ no backend vamos utilizar tbm o framework express
 e o transpilador 'babel' juntamente com nodemon e alguns outros presets.
 > npm install @babel/cli @babel/core @babel/node @babel/preset-env nodemon --save-dev
 
+---
+voltando pro front
+
+pra react hooks vamos utilizar o axios, useEffect
+> npm install axios
+
+e também o react-redux
+> npm install redux react-redux
+
+redux thunk pra fazer async operation inside action redux
+> npm install --save redux-thunk 
+
+
+
+
+---
+GOOGLE CHROME DEV TOOLS
+temos o redux dev tools, no chrome apps, onde podemos ver nossas constants
+com redux e o retorno

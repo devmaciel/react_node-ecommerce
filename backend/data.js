@@ -5,10 +5,11 @@ const data = {
             name: 'Slim Shirt',
             category: 'Shirts',
             image: '/images/d1.jpg',
-            price: '60',
+            price: '61',
             brand: 'Nike',
             rating: '4.5',
-            reviews: '7'
+            reviews: '7',
+            countInStock: 0
         },
         {
             _id: '2',
@@ -18,7 +19,8 @@ const data = {
             price: '50',
             brand: 'Nike',
             rating: '4.7',
-            reviews: '8'
+            reviews: '8',
+            countInStock: 4
         },
         {
             _id: '3',
@@ -28,7 +30,8 @@ const data = {
             price: '40',
             brand: 'Nike',
             rating: '4.9',
-            reviews: '10'
+            reviews: '10',
+            countInStock: 2
         },
     ]
 }

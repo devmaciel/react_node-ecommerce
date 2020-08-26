@@ -233,3 +233,9 @@ a:hover{color:#ff8000;}
 .button-cart.primary{
    background-color: #f0c040;
 }
+
+.button-cart.secondary{
+   background-color: #e6442e;
+   color: white;
+   cursor: not-allowed;
+}
