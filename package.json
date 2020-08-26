@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/joomaciiel/react_node-ecommerce#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "js-cookie": "^2.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",

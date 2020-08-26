@@ -31,6 +31,8 @@ e também o react-redux
 redux thunk pra fazer async operation inside action redux
 > npm install --save redux-thunk 
 
+uso de cookies
+> npm i js-cookie
 
 
 
