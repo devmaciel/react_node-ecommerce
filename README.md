@@ -34,6 +34,9 @@ redux thunk pra fazer async operation inside action redux
 uso de cookies
 > npm i js-cookie
 
+.env pra configurar o nosso env pra database etcs. juntamente com mongoose
+> npm install dotenv
+> npm install mongoose
 
 
 ---

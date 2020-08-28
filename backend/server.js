@@ -2,8 +2,26 @@
 import express from 'express';
 import data from './data';
 
+//database
+import dotenv from 'dotenv';
+import config from './config';
+import mongoose from 'mongoose';
+import userRoute from './routes/userRoute';
+
+const mongodbUrl = config.MONGODB_URL;
+mongoose.connect(mongodbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+}).catch(error => console.log(error.reason));
+
+
 //APP
 const app = express();
+
+
+app.use("/api/users", userRoute);
+
 
 
 //Routes
