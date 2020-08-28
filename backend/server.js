@@ -1,6 +1,7 @@
 //Requires
 import express from 'express';
 import data from './data';
+import bodyParser from 'body-parser';
 
 //database
 import dotenv from 'dotenv';
@@ -20,6 +21,7 @@ mongoose.connect(mongodbUrl, {
 const app = express();
 
 
+app.use(bodyParser.json());
 app.use("/api/users", userRoute);
 
 

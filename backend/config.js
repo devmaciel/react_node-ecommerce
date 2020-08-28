@@ -1,3 +1,4 @@
 export default {
-    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/nodeapi'
+    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/nodeapi',
+    JWT_SECRET: process.env.JWT_SECRET || 'somethingsecret'
 }

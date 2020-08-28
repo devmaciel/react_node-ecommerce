@@ -38,6 +38,8 @@ uso de cookies
 > npm install dotenv
 > npm install mongoose
 
+pra auth de user, vamos usar jsonwebtoken com getToken()
+> npm install jsonwebtoken
 
 ---
 GOOGLE CHROME DEV TOOLS
