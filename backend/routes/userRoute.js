@@ -9,16 +9,16 @@ router.get("/createadmin", async (req, res) => {
 
         const user = new userModel({
             name: 'jao',
-            email: 'jao@teste.com',
+            email: 'jaoo@teste.com',
             password: '1234',
             isAdmin: true
         });
     
         const newUser = await user.save();
-        res.send(user); 
+        res.send(newUser); 
 
     }catch(err){
-        res.send({msg: error.message});
+        res.send({msg: err.message});
     }
     
 
