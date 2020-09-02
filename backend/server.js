@@ -28,13 +28,13 @@ app.use("/api/products", productRoute);
 
 
 
-//Routes
-app.get("/api/products", (req, res) => {
-
-    res.send(data.products);
-});
-
 //STATIC API
+//Routes
+// app.get("/api/products", (req, res) => {
+
+//     res.send(data.products);
+// });
+
 // app.get("/api/products/:id", (req, res) => {
 //     const productId = req.params.id;
 //     const product = data.products.find(x => x._id === productId);
