@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     const productId = req.params.id;
-    const product = await product.findOne({_id: productId});
+    const product = await Product.findById({_id: productId});
 
     if(product){
         product.name = req.body.name;
@@ -53,11 +53,11 @@ router.put('/:id', async (req, res) => {
         product.countInStock = req.body.countInStock;
         product.description = req.body.description;
 
-        const updateProduct = await product.save();
+        const updateProduct = await Product.save();
 
         //update
         if(updateProduct){
-            return res.status(201).send({message: "Product Update", data: updateProduct });
+            return res.status(200).send({message: "Product Update", data: updateProduct });
         }
 
         //if error

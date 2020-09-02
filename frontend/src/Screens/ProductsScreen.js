@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProductScreen from './ProductScreen';
-import { saveProduct, listProducts } from '../actions/productActions';
+import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
 
 function ProductsScreen(props) {
 
@@ -21,14 +21,21 @@ function ProductsScreen(props) {
 
   const productSave = useSelector(state => state.productSave); 
   const { loading: loadingSave, sucesss: successSave, error: errorSave } = productSave;
+
+  const productDelete = useSelector(state => state.productDelete);
+  const { loading: loadingSave, sucesss: successSave, error: errorSave } = productDelete;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(listProducts());
+    if(successSave){
+        setModalVisible(false);
+    }
+    dispatch(listProducts());
     return () => {
       //
     };
-  }, []);
+  }, [successSave]);
 
 
   const openModal = (product) => {
@@ -47,6 +54,10 @@ function ProductsScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveProduct({_id: id, name, price, image, brand, category, countInStock, description }));
+  }
+
+  const deleteHandler = (product) => {
+      dispatch(deleteProduct(product._id));
   }
 
 
@@ -80,7 +91,7 @@ function ProductsScreen(props) {
                         <td>{product.brand}</td>
                         <td>
                             <button onClick={() => openModal(product)}>Edit</button>
-                            <button>Delete</button>
+                            <button onClick={() => deleteHandler(product)}>Delete</button>
                         </td>
                     </tr>))}
                 </tr>
