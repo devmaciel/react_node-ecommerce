@@ -55,6 +55,7 @@ function App() {
 
         <main className="main">
             <div className="content">
+                <Route path="/products" component={ProductScreen} />
                 <Route path="/signin" component={SigninScreen} />
                 <Route path="/register" component={RegisterScreen} />
                 <Route path="/product/:id" component={ProductScreen} />

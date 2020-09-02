@@ -1,5 +1,6 @@
 import express from 'express';
-import userModel from '../models/userModel';
+import User from '../models/userModel';
+import { getToken, isAuth } from '../util';
 
 const router = express.Router();
 
@@ -12,7 +13,7 @@ router.post('/register', async (req, res) => {
         password: req.body.password
     });
 
-    const newUser = await user.save();
+    const newUser = await User.save();
 
     if(newUser){
         res.send({
@@ -30,7 +31,7 @@ router.post('/register', async (req, res) => {
 
 //router pra sign
 router.post('/signin', async (req, res) => {
-    
+
     const signinUser = await User.findOne({
         email: req.body.email,
         password: req.body.password
@@ -42,7 +43,7 @@ router.post('/signin', async (req, res) => {
             name: signinUser.name,
             email: signinUser.email,
             isAdmin: signinUser.isAdmin,
-            token: getToken(user)
+            token: getToken(User)
         });
     } else {
         res.status(401).send({msg: 'Invalid Email or Password'});
@@ -62,7 +63,7 @@ router.get("/createadmin", async (req, res) => {
             isAdmin: true
         });
     
-        const newUser = await user.save();
+        const newUser = await User.save();
         res.send(newUser); 
 
     }catch(err){
