@@ -9,7 +9,6 @@ function RegisterScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
-  
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfo, error } = userRegister;
   const dispatch = useDispatch();
@@ -22,7 +21,7 @@ function RegisterScreen(props) {
     return () => {
       //
     };
-  }, [userInfo, props.history, redirect]);
+  }, [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();

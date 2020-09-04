@@ -56,3 +56,7 @@ pra auth de user, vamos usar jsonwebtoken com getToken()
 GOOGLE CHROME DEV TOOLS
 temos o redux dev tools, no chrome apps, onde podemos ver nossas constants
 com redux e o retorno
+
+---
+original repository
+https://github.com/basir/node-react-ecommerce

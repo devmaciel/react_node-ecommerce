@@ -9,7 +9,6 @@ function SigninScreen(props) {
   const [password, setPassword] = useState('');
   const userSignin = useSelector(state => state.userSignin);
   const { loading, userInfo, error } = userSignin;
-
   const dispatch = useDispatch();
   const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
   useEffect(() => {
@@ -19,7 +18,7 @@ function SigninScreen(props) {
     return () => {
       //
     };
-  }, [userInfo, props.history, dispatch, redirect]);
+  }, [userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();

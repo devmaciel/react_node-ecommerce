@@ -1,61 +1,90 @@
-// import React, { useState, useEffect } from 'react';
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import data from '../data';
-// import axios from 'axios';
+import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
+import Rating from '../components/Rating';
 
-function HomeScreen (props) {
+function HomeScreen(props) {
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [sortOrder, setSortOrder] = useState('');
+  const category = props.match.params.id ? props.match.params.id : '';
+  const productList = useSelector((state) => state.productList);
+  const { products, loading, error } = productList;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(listProducts(category));
 
-    //proxy react hooks
-    // const [products, setProduct] = useState([]);
-    
-    const productList = useSelector(state => state.productList);
-    const { products, loading, error } = productList; 
-    const dispatch = useDispatch();
+    return () => {
+      //
+    };
+  }, [category]);
 
-    useEffect(() => {
-        
-        dispatch(listProducts());
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(listProducts(category, searchKeyword, sortOrder));
+  };
+  const sortHandler = (e) => {
+    setSortOrder(e.target.value);
+    dispatch(listProducts(category, searchKeyword, sortOrder));
+  };
 
-        // const fetchData = async() => {
-        //     const {data} = await axios.get("/api/products");
-        //     setProduct(data)
-        // }
+  return (
+    <>
+      {category && <h2>{category}</h2>}
 
-        // fetchData();
-
-        return () => {
-
-        };
-    }, [dispatch])
-
-
-    return loading ? <div>Loading...</div> : error? <div>{error}</div> :
-    <div>
+      <ul className="filter">
+        <li>
+          <form onSubmit={submitHandler}>
+            <input
+              name="searchKeyword"
+              onChange={(e) => setSearchKeyword(e.target.value)}
+            />
+            <button type="submit">Search</button>
+          </form>
+        </li>
+        <li>
+          Sort By{' '}
+          <select name="sortOrder" onChange={sortHandler}>
+            <option value="">Newest</option>
+            <option value="lowest">Lowest</option>
+            <option value="highest">Highest</option>
+          </select>
+        </li>
+      </ul>
+      {loading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : (
         <ul className="products">
-            {
-                products.map(product => 
-                    <li key={product._id}>
-                        <div className="product">
-                            <Link to={'/product/' + product._id}>
-                                <img className="product-image" src={product.image} alt="product" />
-                            </Link>
-                            
-                            <div className="product-name">
-                                <Link to={'/product/' + product._id}>{product.name}</Link>
-                            </div>
-
-                            <div className="product-brand">{product.brand}</div>
-                            <div className="product-price">${product.price}</div>
-                            <div className="product-rating">{product.rating} Stars ({product.reviews} Reviews)</div>
-                        </div>
-                    </li>
-                )
-            }
+          {products.map((product) => (
+            <li key={product._id}>
+              <div className="product">
+                <Link to={'/product/' + product._id}>
+                  <img
+                    className="product-image"
+                    src={product.image}
+                    alt="product"
+                  />
+                </Link>
+                <div className="product-name">
+                  <Link to={'/product/' + product._id}>{product.name}</Link>
+                </div>
+                <div className="product-brand">{product.brand}</div>
+                <div className="product-price">${product.price}</div>
+                <div className="product-rating">
+                  <Rating
+                    value={product.rating}
+                    text={product.numReviews + ' reviews'}
+                  />
+                </div>
+              </div>
+            </li>
+          ))}
         </ul>
-    </div>
+      )}
+    </>
+  );
 }
-
 export default HomeScreen;
